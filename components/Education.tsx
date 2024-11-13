@@ -10,8 +10,15 @@ import { useRef, useState, useEffect } from "react"
 import Xarrow from 'react-xarrows';
 
 export default function Education() {
-    const refs = Array.from({ length: 4 }, () => useRef(null));
-    const [box1Ref, box2Ref, box3Ref, box4Ref] = refs;
+    // Create refs individually
+    const box1Ref = useRef(null);
+    const box2Ref = useRef(null);
+    const box3Ref = useRef(null);
+    const box4Ref = useRef(null);
+
+    // Create refs array after declaring them
+    const refs = [box1Ref, box2Ref, box3Ref, box4Ref];
+
     const [windowWidth, setWindowWidth] = useState(0);
 
     useEffect(() => {

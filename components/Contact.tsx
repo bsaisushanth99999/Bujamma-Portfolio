@@ -1,5 +1,5 @@
 "use client";
-import { fetcher } from "@/fetcher";
+
 import { PageInfo } from "@/typings";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
@@ -14,43 +14,58 @@ type Inputs = {
 };
 
 export default function Contact() {
-  const [pageInfoData, setPageInfoData] = useState<any>();
+  const [pageInfoData, setPageInfoData] = useState<PageInfo | undefined>();
 
   useEffect(() => {
-    setPageInfoData( {
-        "_id": "0b06c559-dfe1-4cf8-a040-b1e4a782a8b4",
-        "socials": [
-            {
-                "_type": "reference",
-                "_key": "fd5ab5e7bbd5",
-                "_ref": "379d1dbe-9b05-481c-9fd0-d671d097dafd"
-            },
-            {
-                "_ref": "4dd556ca-f0ad-42f2-acbf-2e81ce8e77a2",
-                "_type": "reference",
-                "_key": "b129b3cc731e"
-            },
-            {
-                "_key": "726f7cd2d31b",
-                "_ref": "5324684a-efb4-426b-bc63-de2698cee87d",
-                "_type": "reference"
-            }
-        ],
-        "_updatedAt": "2024-06-02T23:46:17Z",
-        "address": "WhiteField, Banglore",
-        "_rev": "TDRd8OoYojtwmEJ58jDWWe",
-        "phoneNumber": "+(91)-8897087962",
-        "_createdAt": "2023-05-07T07:48:26Z",
-        "name": "Bynagari Tejaswini Reddy",
-        "email": "Tejaswini2811@gmail.com",
-        "backgroundInformation": "Hi, I love coding on my weekend's as a hobby. I have 4+ years of experience in Full-Stack development and keen eye for new technologies such as this \"Next Js\", in which this project is designed. I have almost 5 projects linked to my name all responsive, all with something new in them like ChatGPT inclusion in my projects.",
+    setPageInfoData({
+      "_id": "0b06c559-dfe1-4cf8-a040-b1e4a782a8b4",
+      "socials": [
+        {
+          "_type": "reference",
+          "_key": "fd5ab5e7bbd5",
+          "_ref": "379d1dbe-9b05-481c-9fd0-d671d097dafd"
+        },
+        {
+          "_ref": "4dd556ca-f0ad-42f2-acbf-2e81ce8e77a2",
+          "_type": "reference",
+          "_key": "b129b3cc731e"
+        },
+        {
+          "_key": "726f7cd2d31b",
+          "_ref": "5324684a-efb4-426b-bc63-de2698cee87d",
+          "_type": "reference"
+        }
+      ],
+      "_updatedAt": "2024-06-02T23:46:17Z",
+      "address": "WhiteField, Banglore",
+      "_rev": "TDRd8OoYojtwmEJ58jDWWe",
+      "phoneNumber": "+(91)-8897087962",
+      "_createdAt": "2023-05-07T07:48:26Z",
+      "name": "Bynagari Tejaswini Reddy",
+      "email": "Tejaswini2811@gmail.com",
+      "backgroundInformation": "Hi, I love coding on my weekend's as a hobby. I have 4+ years of experience in Full-Stack development and keen eye for new technologies such as this \"Next Js\", in which this project is designed. I have almost 5 projects linked to my name all responsive, all with something new in them like ChatGPT inclusion in my projects.",
+      "_type": "PageInfo",
+      "heroImage": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-placeholder",
+          "_type": "reference"
+        }
+      },
+      "profilePic": {
+        "_type": "image",
+        "asset": {
+          "_ref": "image-placeholder",
+          "_type": "reference"
+        }
+      }
     });
-  },[pageInfoData])
+  }, []);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { },
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (formData) => {

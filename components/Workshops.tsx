@@ -8,64 +8,74 @@ import React, { useEffect, useState } from "react";
 export default function Workshops() {
   // const projects = [1, 2, 3, 4, 5];
   const [projects, setprojects] = useState<Array<Project>>();
-  
-useEffect(() => {
+
+  useEffect(() => {
     setprojects([{
-        "title": "Portfolio",
-        "image": {
+      "title": "Portfolio",
+      "image": {
         "hotspot": {
-        "_type": "sanity.imageHotspot",
-        "width": 0.976027397260274,
-        "x": 0.488013698630137,
-        "y": 0.5534246575342466,
-        "height": 0.8931506849315068
+          "_type": "sanity.imageHotspot",
+          "width": 0.976027397260274,
+          "x": 0.488013698630137,
+          "y": 0.5534246575342466,
+          "height": 0.8931506849315068
         },
         "_type": "image",
         "asset": {
-        "_ref": "image-11032bcb022fba165fab2eac6ce12b8c1f037576-3584x2240-png",
-        // "_type": "reference"
+          "_ref": "image-11032bcb022fba165fab2eac6ce12b8c1f037576-3584x2240-png",
+          "_type": "reference"
         },
         "crop": {
-        "right": 0.023972602739726012,
-        "top": 0.1068493150684932,
-        "left": 0,
-        "bottom": 0,
-        "_type": "sanity.imageCrop"
+          "right": 0.023972602739726012,
+          "top": 0.1068493150684932,
+          "left": 0,
+          "bottom": 0,
+          "_type": "sanity.imageCrop"
         }
-        },
-        "linkToBuild": "https://next-portfolio-blond-eight.vercel.app",
-        "_type": "project",
-        "summary": "A Portfolio created using latest NextJs, and incorporating Sanity as its backEnd to fetch all the data dynamically. this project took me 4 days in total to complete. P.S: This Website is designed for all the screens ranging from XL to MOBILE."
       },
-      {
-        "title": "Portfolio",
-        "image": {
+      "linkToBuild": "https://next-portfolio-blond-eight.vercel.app",
+      "_type": "project",
+      "summary": "A Portfolio created using latest NextJs...",
+      "_id": "project-1",
+      "_createdAt": new Date().toISOString(),
+      "_updatedAt": new Date().toISOString(),
+      "_rev": "1",
+      "technologies": []
+    },
+    {
+      "title": "Portfolio",
+      "image": {
         "hotspot": {
-        "_type": "sanity.imageHotspot",
-        "width": 0.976027397260274,
-        "x": 0.488013698630137,
-        "y": 0.5534246575342466,
-        "height": 0.8931506849315068
+          "_type": "sanity.imageHotspot",
+          "width": 0.976027397260274,
+          "x": 0.488013698630137,
+          "y": 0.5534246575342466,
+          "height": 0.8931506849315068
         },
         "_type": "image",
         "asset": {
-        "_ref": "image-11032bcb022fba165fab2eac6ce12b8c1f037576-3584x2240-png",
-        "_type": "reference"
+          "_ref": "image-11032bcb022fba165fab2eac6ce12b8c1f037576-3584x2240-png",
+          "_type": "reference"
         },
         "crop": {
-        "right": 0.023972602739726012,
-        "top": 0.1068493150684932,
-        "left": 0,
-        "bottom": 0,
-        "_type": "sanity.imageCrop"
+          "right": 0.023972602739726012,
+          "top": 0.1068493150684932,
+          "left": 0,
+          "bottom": 0,
+          "_type": "sanity.imageCrop"
         }
-        },
-        "linkToBuild": "https://next-portfolio-blond-eight.vercel.app",
-        "_type": "project",
-        "summary": "A Portfolio created using latest NextJs, and incorporating Sanity as its backEnd to fetch all the data dynamically. this project took me 4 days in total to complete. P.S: This Website is designed for all the screens ranging from XL to MOBILE."
-      }
+      },
+      "linkToBuild": "https://next-portfolio-blond-eight.vercel.app",
+      "_type": "project",
+      "summary": "A Portfolio created using latest NextJs...",
+      "_id": "project-2",
+      "_createdAt": new Date().toISOString(),
+      "_updatedAt": new Date().toISOString(),
+      "_rev": "2",
+      "technologies": []
+    }
     ])
-},[projects]);
+  }, []);
 
 
 
