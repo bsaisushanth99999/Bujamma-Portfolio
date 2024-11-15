@@ -73,7 +73,7 @@ export default function Education() {
                             end={(index + 1).toString()}
                             color="red"
                             strokeWidth={2}
-                            animateDrawing={true}
+                            animateDrawing={2}
                             labels={index == 0
                                 ? { "middle": <div style={{ fontSize: "1.3em", fontFamily: "fantasy", fontStyle: "italic" }}>10 years</div> }
                                 : index == 1

@@ -116,6 +116,12 @@ export default function HomePage() {
   const imageWrapperStyles = "relative overflow-hidden flex items-center justify-center";
   const imageStyles = "object-cover w-full h-full rounded-full hover:grayscale transition-all duration-300";
 
+  const handleNavigation = (path: string) => {
+    // Use Next.js router prefetch to speed up navigation
+    router.prefetch(path);
+    router.push(path);
+  };
+
   return (
     <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-[#1F2937]">
       {/* Main center image */}
@@ -172,7 +178,7 @@ export default function HomePage() {
                     if (index === 5) {
                       setIsHoveringExperience(!isHoveringExperience);
                     } else {
-                      router.push(imageMapper[index]);
+                      handleNavigation(imageMapper[index]);
                     }
                   }}
                 />
@@ -185,7 +191,8 @@ export default function HomePage() {
                 color="gold"
                 strokeWidth={1}
                 dashness={true}
-                animateDrawing={true}
+                animateDrawing={1}
+                headSize={3}
                 path="smooth"
               />
 
@@ -236,7 +243,7 @@ export default function HomePage() {
                                 transition-all duration-300
                                 group-hover/exp:grayscale
                               `}
-                              onClick={() => router.push(additionalImageMapper[i])}
+                              onClick={() => handleNavigation(additionalImageMapper[i])}
                             />
                           </div>
 
@@ -246,7 +253,8 @@ export default function HomePage() {
                             color="gold"
                             strokeWidth={1}
                             dashness={true}
-                            animateDrawing={true}
+                            animateDrawing={1}
+                            headSize={3}
                             path="smooth"
                           />
 

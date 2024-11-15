@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.contactInput{
-    @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424] text-gray-500 placeholder-gray-500 transition-all focus:border-[#F7AB0A]/40
-    focus:text-[#f7AB0A]/40 hover:border-[#f7AB0A]/40 w-[100%]
+@layer components {
+  .contactInput {
+    @apply outline-none bg-slate-400/10 rounded-sm border-b px-6 py-4 border-[#242424]
+    text-gray-500 placeholder-gray-500 transition-all focus:border-[#F7AB0A]/40
+    focus:text-[#F7AB0A]/40 hover:border-[#F7AB0A]/40;
+  }
 }
