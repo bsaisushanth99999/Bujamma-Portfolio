@@ -5,6 +5,7 @@ import { urlFor } from "@/utils/imageUrlConvertor";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { CertificationsData } from "@/typings";
+import Image from "next/image";
 
 export default function Certifications() {
   const [certificationsData, setCertificationsData] = useState<CertificationsData | null>(null);
@@ -40,7 +41,7 @@ export default function Certifications() {
               className='flex flex-col items-center justify-center rounded-3xl bg-gray-50 border p-4 min-h-[40vh] lg:max-h-[20vh] hover:bg-gray-100 transition-all'
             >
               {cert.pdfImage && (
-                <img
+                <Image
                   src={urlFor(cert.pdfImage).url()}
                   alt={cert.name}
                   className="w-full h-32 object-contain mb-4"

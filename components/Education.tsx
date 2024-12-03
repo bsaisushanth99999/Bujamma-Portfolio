@@ -2,9 +2,9 @@
 
 import img1 from "@/photos/biit.jpg"
 import img2 from "@/photos/cornell.png"
-import img3 from "@/photos/bashyam.jpg"
+// import img3 from "@/photos/bashyam.jpg"
 import img4 from "@/photos/maharaja.jpg"
-import img5 from "@/photos/main-picture.jpeg"
+// import img5 from "@/photos/main-picture.jpeg"
 import Image from "next/image"
 import { useRef, useState, useEffect } from "react"
 import Xarrow from 'react-xarrows';
