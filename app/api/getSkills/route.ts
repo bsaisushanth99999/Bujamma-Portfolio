@@ -5,13 +5,14 @@ import { NextResponse } from 'next/server'
 const query = groq`*[_type == "skills"][0] {
   title,
   clinicalSkills,
-  generalSkills
+  generalSkills,
+  technicalSkills
 }`
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
-  useCdn: true,
+  useCdn: false,
   apiVersion: '2024-03-21',
 })
 

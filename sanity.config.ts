@@ -5,25 +5,32 @@
  */
 
 import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
+import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemas'
+import pageInfo from './schemas/pageInfo'
+import hobbies from './schemas/hobbies'
+import certifications from './schemas/certifications'
+import languages from './schemas/languages'
+import skills from './schemas/skills'
+import workshops from './schemas/workshops'
 
 export default defineConfig({
   name: 'default',
   title: 'bujamma-portfolio',
 
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET!,
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || 'production',
+  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2024-03-13',
+  useCdn: false,
 
-  basePath: "/studio",
-
-  plugins: [
-    deskTool(),
-    visionTool(),
-  ],
+  basePath: '/studio',
 
   schema: {
-    types: schemaTypes,
+    types: [pageInfo, hobbies, certifications, languages, skills, workshops],
   },
+
+  plugins: [
+    structureTool(),
+    visionTool(),
+  ],
 })

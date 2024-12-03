@@ -1,9 +1,9 @@
 'use client';
 
-import img1 from "@/photos/img1.jpeg"
-import img2 from "@/photos/img6.jpeg"
-import img3 from "@/photos/img3.jpeg"
-import img4 from "@/photos/img4.jpeg"
+import img1 from "@/photos/biit.jpg"
+import img2 from "@/photos/cornell.png"
+import img3 from "@/photos/bashyam.jpg"
+import img4 from "@/photos/maharaja.jpg"
 import img5 from "@/photos/main-picture.jpeg"
 import Image from "next/image"
 import { useRef, useState, useEffect } from "react"
@@ -11,13 +11,12 @@ import Xarrow from 'react-xarrows';
 
 export default function Education() {
     // Create refs individually
-    const box1Ref = useRef(null);
     const box2Ref = useRef(null);
     const box3Ref = useRef(null);
     const box4Ref = useRef(null);
 
-    // Create refs array after declaring them
-    const refs = [box1Ref, box2Ref, box3Ref, box4Ref];
+    // Create refs array with only the active refs
+    const refs = [box4Ref, box2Ref, box3Ref];
 
     const [windowWidth, setWindowWidth] = useState(0);
 
@@ -50,20 +49,25 @@ export default function Education() {
             </div>
 
             <div className="flex-1 relative">
-                <div id="4" className="absolute top-16 left-1/3 transform -translate-x-1/2">
-                    <Image src={img5} alt="Image 5" width={imageSize} height={imageSize} className="rounded-full" />
+                {/* <div className="absolute top-16 left-1/3 transform -translate-x-1/2">
+                    <Image id="4" src={img5} alt="Image 5" width={imageSize} height={imageSize} className="rounded-full" />
+                    <p>Bashyam High School</p>
+                </div> */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                    <Image ref={box3Ref} id="2" src={img4} alt="Image 4" width={imageSize} height={imageSize} className="rounded-full mx-auto" />
+                    <p>Maharajah&apos;s Institute of Medical Sciences</p>
                 </div>
-                <div ref={box3Ref} id="2" className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    <Image src={img4} alt="Image 4" width={imageSize} height={imageSize} className="rounded-full" />
+                {/* <div className="absolute bottom-16 left-2/3 transform -translate-x-1/2 text-center">
+                    <Image ref={box1Ref} src={img3} alt="Image 3" width={imageSize} height={imageSize} className="rounded-full ml-auto" />
+                    <p>Bashyam High School</p>
+                </div> */}
+                <div className="absolute left-32 top-1/3 transform -translate-y-1/2 text-center">
+                    <Image id="3" src={img2} alt="Image 2" width={200} height={imageSize} className="rounded-full mx-auto" />
+                    <p>Cornell University</p>
                 </div>
-                <div ref={box1Ref} className="absolute bottom-16 left-2/3 transform -translate-x-1/2">
-                    <Image src={img3} alt="Image 3" width={imageSize} height={imageSize} className="rounded-full" />
-                </div>
-                <div ref={box4Ref} id="3" className="absolute left-32 top-1/3 transform -translate-y-1/2">
-                    <Image src={img2} alt="Image 2" width={imageSize} height={imageSize} className="rounded-full" />
-                </div>
-                <div ref={box2Ref} id="1" className="absolute right-32 top-2/3 transform -translate-y-1/2">
-                    <Image src={img1} alt="Image 1" width={imageSize} height={imageSize} className="rounded-full" />
+                <div className="absolute right-32 top-2/3 transform -translate-y-1/2 text-center">
+                    <Image ref={box2Ref} src={img1} alt="Image 1" width={imageSize} height={imageSize} className="rounded-full mx-auto" />
+                    <p>Bashyam IIT Junior college</p>
                 </div>
 
                 {refs.map((ref, index) => (
@@ -73,16 +77,14 @@ export default function Education() {
                             end={(index + 1).toString()}
                             color="red"
                             strokeWidth={2}
+                            // startAnchor={index == 3 ? "top" : "auto"}
+                            // endAnchor={index == 0 ? "bottom" : "auto"}
                             animateDrawing={2}
-                            labels={index == 0
-                                ? { "middle": <div style={{ fontSize: "1.3em", fontFamily: "fantasy", fontStyle: "italic" }}>10 years</div> }
-                                : index == 1
-                                    ? { "middle": <div style={{ fontSize: "1.3em", fontFamily: "fantasy", fontStyle: "italic" }}>2 years</div> }
-                                    : index == 2
-                                        ? { "middle": <div style={{ fontSize: "1.3em", fontFamily: "fantasy", fontStyle: "italic" }}>4 years</div> }
-                                        : index == 3
-                                            ? { "middle": <div style={{ fontSize: "1.3em", fontFamily: "fantasy", fontStyle: "italic" }}>5 years</div> }
-                                            : ""}
+                            labels={index == 1
+                                ? { "middle": <div style={{ fontSize: "1.3em", fontFamily: "fantasy", fontStyle: "italic" }}>2 years</div> }
+                                : index == 2
+                                    ? { "middle": <div style={{ fontSize: "1.3em", fontFamily: "fantasy", fontStyle: "italic" }}>4 years</div> }
+                                    : ""}
                         />
                     </span>
                 ))}

@@ -29,24 +29,66 @@ export default function Hobbies() {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 1.5 }}
-      className='flex flex-col items-center justify-center h-screen'
+      transition={{ duration: 0.3 }}
+      className='flex flex-col items-center justify-center min-h-screen bg-white text-gray-900 py-20'
     >
-      <div className="relative">
-        <h1 className="uppercase tracking-[20px] text-gray-500 text-2xl mt-12">
-          {hobbiesData?.title || "Hobbies / Interests"}
-        </h1>
-      </div>
+      <motion.h1
+        initial={{ y: -50 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="text-4xl font-bold mb-16"
+      >
+        {hobbiesData?.title || "Hobbies & Passions"}
+      </motion.h1>
 
-      <div className='flex-1 grid grid-cols-3 md:grid-cols-4 gap-5 w-3/4 mt-12'>
-        {hobbiesData?.hobbiesList?.map((hobby, index) => (
-          <div
-            key={index}
-            className='flex items-center justify-center rounded-3xl bg-gray-50 border transition duration-300 ease-in-out hover:bg-gray-100 p-4'
-          >
-            {hobby}
-          </div>
-        ))}
+      <div className='relative w-4/5 max-w-6xl'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+          {hobbiesData?.hobbiesList?.map((hobby, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.2,
+                delay: index * 0.05,
+              }}
+              whileHover={{
+                scale: 1.05,
+                rotate: 5,
+                boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
+                transition: {
+                  duration: 0.1,
+                  ease: "easeOut"
+                }
+              }}
+              style={{
+                transform: 'scale(1) rotate(0deg)',
+                boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
+                transition: 'all 0.1s ease-out'
+              }}
+              className='relative group overflow-hidden rounded-lg'
+            >
+              <div
+                className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-70 group-hover:opacity-100'
+                style={{
+                  transition: 'all 0.1s ease-out'
+                }}
+              />
+
+              <div className='relative h-[200px] flex items-center justify-center'>
+                <div
+                  className='absolute inset-0 bg-white opacity-0 group-hover:opacity-10'
+                  style={{
+                    transition: 'all 0.1s ease-out'
+                  }}
+                />
+                <div className='relative z-10 p-6'>
+                  <h3 className='text-xl font-medium text-white text-center'>{hobby}</h3>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </motion.div>
   );

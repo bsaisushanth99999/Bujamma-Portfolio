@@ -17,7 +17,8 @@ export default function About() {
 
     const fetchData = async () => {
       try {
-        const data = await fetcher<PageInfo>("/api/getPageInfo");
+        const timestamp = new Date().getTime();
+        const data = await fetcher<PageInfo>(`/api/getPageInfo?t=${timestamp}`);
         if (mounted) {
           setPageInfoData(data);
           setIsLoading(false);

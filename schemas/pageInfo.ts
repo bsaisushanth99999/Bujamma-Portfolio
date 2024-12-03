@@ -9,7 +9,11 @@ export default defineType({
       name: 'name',
       title: 'Name',
       type: 'string',
-      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'role',
+      title: 'Role',
+      type: 'string',
     }),
     defineField({
       name: 'heroImage',
@@ -18,13 +22,11 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'backgroundInformation',
       title: 'Background Information',
       type: 'text',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'profilePic',
@@ -33,25 +35,21 @@ export default defineType({
       options: {
         hotspot: true,
       },
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'phoneNumber',
       title: 'Phone Number',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'email',
       title: 'Email',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: 'address',
       title: 'Address',
       type: 'string',
-      validation: (Rule) => Rule.required(),
     }),
   ],
 }) 

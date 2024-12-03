@@ -8,6 +8,7 @@ type SkillsData = {
     title: string;
     clinicalSkills: string[];
     generalSkills: string[];
+    technicalSkills: string[];
 };
 
 export default function Skills() {
@@ -17,6 +18,7 @@ export default function Skills() {
         const fetchData = async () => {
             try {
                 const data = await fetcher<SkillsData>("/api/getSkills");
+                console.log(data);
                 setSkillsData(data);
             } catch (error) {
                 console.error("Error fetching skills:", error);
@@ -31,46 +33,96 @@ export default function Skills() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
-            className="min-h-screen relative flex flex-col text-center md:text-left max-w-[2000px] justify-center mx-auto items-center"
+            className="min-h-screen w-[75%] relative flex flex-col text-center md:text-left max-w-[2000px] justify-center mx-auto items-center"
         >
-            <h3 className="absolute top-24 uppercase tracking-[20px] text-gray-500 text-2xl">
+            <h3 className="absolute top-16 uppercase tracking-[20px] text-gray-500 text-2xl ml-24 md:ml-0">
                 {skillsData?.title || "Skills"}
             </h3>
 
-            <div className="w-full mt-32 px-10 flex flex-col md:flex-row justify-between items-start gap-10">
-                {/* Clinical Skills - Left Side */}
-                <div className="w-full md:w-1/2">
-                    <h4 className="text-xl font-semibold mb-4 text-[#F7AB0A]">
+            <div className="w-full md:ml-48 pl-16 md:pl-0 mt-16 md:mt-0 px-4 md:px-10 flex flex-col md:flex-row justify-between items-start gap-12">
+                {/* Clinical Skills Section */}
+                <motion.div
+                    initial={{ x: -200, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 1 }}
+                    className="w-full md:w-1/3 md:ml-8 mt-24 md:mt-0"
+                >
+                    <h4 className="text-2xl font-bold mb-8 bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
                         Clinical Skills
                     </h4>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+                    <div className="space-y-4">
                         {skillsData?.clinicalSkills?.map((skill, index) => (
-                            <div
+                            <motion.div
                                 key={index}
-                                className="p-4 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-all"
+                                initial={{ x: -50, opacity: 0 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                transition={{ duration: 0.3, delay: index * 0.1 }}
+                                className="flex items-center group"
                             >
-                                {skill}
-                            </div>
+                                <span className="h-3 w-3 flex-shrink-0 rounded-full bg-gradient-to-r from-purple-400 to-pink-600 group-hover:scale-125 transition-all duration-300" />
+                                <span className="ml-4 text-gray-700 group-hover:text-black group-hover:translate-x-2 transition-all duration-300">
+                                    {skill}
+                                </span>
+                            </motion.div>
                         ))}
                     </div>
-                </div>
+                </motion.div>
 
-                {/* General Skills - Right Side */}
-                <div className="w-full md:w-1/2">
-                    <h4 className="text-xl font-semibold mb-4 text-[#F7AB0A]">
+                {/* General Skills Section */}
+                <motion.div
+                    initial={{ y: 100, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 1 }}
+                    className="w-full md:w-1/3"
+                >
+                    <h4 className="text-2xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-blue-600 bg-clip-text text-transparent">
                         General Skills
                     </h4>
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-5">
+                    <div className="space-y-4">
                         {skillsData?.generalSkills?.map((skill, index) => (
-                            <div
+                            <motion.div
                                 key={index}
-                                className="p-4 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-all"
+                                initial={{ x: -50, opacity: 0 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                transition={{ duration: 0.3, delay: index * 0.1 }}
+                                className="flex items-center group"
                             >
-                                {skill}
-                            </div>
+                                <span className="h-3 w-3 flex-shrink-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-600 group-hover:scale-125 transition-all duration-300" />
+                                <span className="ml-4 text-gray-700 group-hover:text-black group-hover:translate-x-2 transition-all duration-300">
+                                    {skill}
+                                </span>
+                            </motion.div>
                         ))}
                     </div>
-                </div>
+                </motion.div>
+
+                {/* Technical Skills Section */}
+                <motion.div
+                    initial={{ x: 200, opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    transition={{ duration: 1 }}
+                    className="w-full md:w-1/3"
+                >
+                    <h4 className="text-2xl font-bold mb-8 bg-gradient-to-r from-emerald-400 to-green-600 bg-clip-text text-transparent">
+                        Technical Skills
+                    </h4>
+                    <div className="space-y-4">
+                        {skillsData?.technicalSkills?.map((skill, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ x: -50, opacity: 0 }}
+                                whileInView={{ x: 0, opacity: 1 }}
+                                transition={{ duration: 0.3, delay: index * 0.1 }}
+                                className="flex items-center group"
+                            >
+                                <span className="h-3 w-3 flex-shrink-0 rounded-full bg-gradient-to-r from-emerald-400 to-green-600 group-hover:scale-125 transition-all duration-300" />
+                                <span className="ml-4 text-gray-700 group-hover:text-black group-hover:translate-x-2 transition-all duration-300">
+                                    {skill}
+                                </span>
+                            </motion.div>
+                        ))}
+                    </div>
+                </motion.div>
             </div>
         </motion.div>
     );

@@ -22,5 +22,11 @@ export default defineType({
       type: 'array',
       of: [{type: 'string'}],
     }),
+    defineField({
+      name: 'technicalSkills',
+      title: 'Techinical Skills',
+      type: 'array',
+      of: [{type: 'string'}],
+    }),
   ],
 }) 

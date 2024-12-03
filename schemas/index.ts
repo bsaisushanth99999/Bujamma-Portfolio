@@ -1,3 +1,4 @@
+import pageInfo from './pageInfo'
 import skills from './skills'
 import workshops from './workshops'
 import hobbies from './hobbies'
@@ -10,4 +11,6 @@ export const schemaTypes = [
   hobbies,
   languages,
   certifications,
+  pageInfo,
+  // Add other schemas here
 ] 
