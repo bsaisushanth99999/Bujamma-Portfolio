@@ -7,7 +7,7 @@ import { urlFor } from "@/utils/imageUrlConvertor";
 
 type Language = {
   language: string;
-  proficiency: 'native' | 'fluent' | 'intermediate' | 'basic';
+  proficiency: 'Native' | 'Fluent' | 'Intermediate' | 'Basic';
   flag: {
     _type: 'image';
     asset: {
@@ -26,6 +26,7 @@ type LanguagesData = {
 export default function Languages() {
   const [languagesData, setLanguagesData] = useState<LanguagesData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -55,7 +56,7 @@ export default function Languages() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
-      className="min-h-screen relative flex flex-col text-center md:text-left max-w-7xl px-10 mx-auto items-center"
+      className="min-h-screen relative flex flex-col text-center md:text-left max-w-7xl px-10 mx-auto items-center justify-center pb-40"
     >
       <div className="flex flex-col space-y-4 pt-24 text-center">
         <h3 className="uppercase tracking-[20px] text-gray-500 text-2xl">
@@ -67,7 +68,7 @@ export default function Languages() {
         </h3>
       </div>
 
-      <div className="grid grid-cols-3 md:grid-cols-4 gap-8 mt-10">
+      <div className="grid grid-cols-3 md:grid-cols-3 gap-8 mt-10">
         {languagesData?.languages?.map((lang, index) => (
           <div key={lang._key} className="group relative flex cursor-pointer">
             {lang.flag && (
@@ -92,7 +93,7 @@ export default function Languages() {
                   {lang.language}
                 </p>
                 <p className="text-lg font-semibold text-black opacity-100">
-                  {lang.proficiency}
+                  {lang.proficiency.slice(0, 1).toUpperCase() + lang.proficiency.slice(1, lang.proficiency.length).toLowerCase()}
                 </p>
               </div>
             </div>

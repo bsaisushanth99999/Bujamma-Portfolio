@@ -11,6 +11,12 @@ export default defineType({
       type: 'string',
     }),
     defineField({
+      name: 'researchSkills',
+      title: 'Research & Analytical Skills',
+      type: 'array',
+      of: [{type: 'string'}],
+    }),
+    defineField({
       name: 'clinicalSkills',
       title: 'Clinical Skills',
       type: 'array',

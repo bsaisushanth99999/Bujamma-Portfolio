@@ -10,13 +10,16 @@ const SidebarNavigation = () => {
 
     const links = [
         { href: "/", label: "Home", icon: "🏠" },
+        { href: "/about", label: "About", icon: "👩‍⚕️" },
         { href: "/education", label: "Education", icon: "🎓" },
+        // { href: "/experience", label: "Experience", icon: "🏢" },
+        { href: "/projects", label: "Projects", icon: "📋" },
+        { href: "/workshops", label: "Workshops", icon: "🏗️" },
+        { href: "/certifications", label: "Certifications", icon: "📜" },
         { href: "/skills", label: "Skills", icon: "🛠️" },
         { href: "/hobbies", label: "Hobbies", icon: "🎨" },
         { href: "/languages", label: "Languages", icon: "🌐" },
-        { href: "/workshops", label: "Workshops", icon: "🏗️" },
-        { href: "/experience", label: "Experience", icon: "🏢" },
-        { href: "/certifications", label: "Certifications", icon: "📜" },
+        { href: "/resume", label: "Resume", icon: "📄" },
         { href: "/contact", label: "Contact", icon: "📞" },
     ];
 

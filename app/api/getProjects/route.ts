@@ -1,10 +1,17 @@
 import { groq } from "next-sanity"
 import { createClient } from '@sanity/client'
 import { NextResponse } from 'next/server'
-import type { PageInfo } from "@/typings"
 
-// Query to fetch all fields from the pageInfo document
-const query = groq`*[_type == "pageInfo"][0]`
+const query = groq`*[_type == "project"] {
+  _id,
+  _type,
+  title,
+  pdfDocuments,
+  summary,
+  image,
+  linkToBuild,
+  technologies[]->
+}`
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
@@ -18,16 +25,11 @@ const client = createClient({
 
 export async function GET() {
   try {
-    const pageInfo = await client.fetch<PageInfo>(query, {}, {
+    const projects = await client.fetch(query, {}, {
       cache: 'no-store',
       next: { revalidate: 0 }
     })
-    
-    if (!pageInfo) {
-      return NextResponse.json({ error: "No pageInfo data found" }, { status: 404 })
-    }
-
-    return NextResponse.json(pageInfo, {
+    return NextResponse.json(projects, {
       headers: {
         'Cache-Control': 'no-store, must-revalidate',
         'Pragma': 'no-cache',
@@ -35,7 +37,7 @@ export async function GET() {
       }
     })
   } catch (error) {
-    console.error("Error fetching pageInfo:", error)
-    return NextResponse.json({ error: "Failed to fetch pageInfo" }, { status: 500 })
+    console.error("Error fetching projects:", error)
+    return NextResponse.json({ error: "Failed to fetch projects" }, { status: 500 })
   }
 } 

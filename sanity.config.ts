@@ -1,7 +1,7 @@
 'use client'
 
 /**
- * This configuration is used to for the Sanity Studio that’s mounted on the `/app/sanity/[[...tool]]/page.tsx` route
+ * This configuration is used to for the Sanity Studio that's mounted on the `/app/sanity/[[...tool]]/page.tsx` route
  */
 
 import {defineConfig} from 'sanity'
@@ -13,6 +13,9 @@ import certifications from './schemas/certifications'
 import languages from './schemas/languages'
 import skills from './schemas/skills'
 import workshops from './schemas/workshops'
+import experience from './schemas/experienceSchema'
+import project from './schemas/projectSchema'
+import resume from './schemas/resumeSchema'
 
 export default defineConfig({
   name: 'default',
@@ -26,7 +29,7 @@ export default defineConfig({
   basePath: '/studio',
 
   schema: {
-    types: [pageInfo, hobbies, certifications, languages, skills, workshops],
+    types: [pageInfo, hobbies, certifications, languages, skills, workshops, experience, project, resume],
   },
 
   plugins: [

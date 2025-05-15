@@ -10,6 +10,7 @@
   }
 }
 
+
 .sidebar-nav {
   position: fixed;
   top: 0;
@@ -53,6 +54,13 @@
   color: white;
   transform: translateX(4px);
 }
+
+.allura-regular {
+  font-family: "Allura", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 .nav-item.active {
   background: rgba(255, 255, 255, 0.1);

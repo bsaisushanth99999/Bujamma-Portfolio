@@ -5,23 +5,47 @@ import { PageInfo } from "@/typings";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
-
+import LoadingSpinner from './LoadingSpinner';
 
 export default function Contact() {
   const [pageInfoData, setPageInfoData] = useState<PageInfo>();
+  const [isLoading, setIsLoading] = useState(true);
+
+  const fetchData = async () => {
+    try {
+      const timestamp = new Date().getTime();
+      const data = await fetcher<PageInfo>(`/api/getPageInfo?t=${timestamp}`);
+      setPageInfoData(data);
+      setIsLoading(false);
+    } catch (error) {
+      console.error("Error fetching PageInfo:", error);
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await fetcher<PageInfo>("/api/getPageInfo");
-        setPageInfoData(data);
-      } catch (error) {
-        console.error("Error fetching PageInfo:", error);
+    let mounted = true;
+
+    const fetchAndSetData = async () => {
+      if (mounted) {
+        await fetchData();
       }
     };
 
-    fetchData();
+    fetchAndSetData();
+
+    // Set up an interval to refresh data every 30 seconds
+    const intervalId = setInterval(fetchAndSetData, 30000);
+
+    return () => {
+      mounted = false;
+      clearInterval(intervalId);
+    };
   }, []);
+
+  if (isLoading || !pageInfoData) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <motion.div

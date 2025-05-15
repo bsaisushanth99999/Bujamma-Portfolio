@@ -30,6 +30,14 @@ export default defineType({
               options: {
                 hotspot: true,
               },
+            },
+            {
+              name: 'pdfDocument',
+              title: 'Certificate PDF',
+              type: 'file',
+              options: {
+                accept: '.pdf'
+              }
             }
           ]
         }

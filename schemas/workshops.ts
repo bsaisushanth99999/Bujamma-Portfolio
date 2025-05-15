@@ -23,5 +23,13 @@ export default defineType({
       title: 'Summary',
       type: 'text',
     }),
+    defineField({
+      name: 'pdfDocument',
+      title: 'PDF Document',
+      type: 'file',
+      options: {
+        accept: '.pdf'
+      }
+    }),
   ],
 }) 

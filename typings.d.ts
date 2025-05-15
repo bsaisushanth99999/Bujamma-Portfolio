@@ -44,6 +44,13 @@ export interface SanityImage {
 export interface Certification {
     name: string;
     pdfImage: SanityImage;
+    pdfDocument?: {
+        _type: "file";
+        asset: {
+            _ref: string;
+            _type: "reference";
+        };
+    };
 }
 
 export interface CertificationsData {
@@ -56,4 +63,11 @@ export interface Workshop {
     title: string;
     image: SanityImage;
     summary: string;
+    pdfDocument?: {
+        _type: "file";
+        asset: {
+            _ref: string;
+            _type: "reference";
+        };
+    };
 }

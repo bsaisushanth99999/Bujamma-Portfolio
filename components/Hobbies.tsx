@@ -38,7 +38,9 @@ export default function Hobbies() {
         transition={{ duration: 0.3 }}
         className="text-4xl font-bold mb-16"
       >
-        {hobbiesData?.title || "Hobbies & Passions"}
+        <p className="uppercase tracking-[20px] text-gray-500 text-2xl ml-24 md:ml-0">
+          {hobbiesData?.title || "HOBBIES"}
+        </p>
       </motion.h1>
 
       <div className='relative w-4/5 max-w-6xl'>
@@ -69,7 +71,7 @@ export default function Hobbies() {
               className='relative group overflow-hidden rounded-lg'
             >
               <div
-                className='absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 opacity-70 group-hover:opacity-100'
+                className='absolute inset-0 bg-gradient-to-r from-[#E57A44] to-[#251351] opacity-70 group-hover:opacity-100'
                 style={{
                   transition: 'all 0.1s ease-out'
                 }}

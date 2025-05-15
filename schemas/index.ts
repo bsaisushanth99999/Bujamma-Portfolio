@@ -4,6 +4,7 @@ import workshops from './workshops'
 import hobbies from './hobbies'
 import languages from './languages'
 import certifications from './certifications'
+import experience from './experienceSchema'
 
 export const schemaTypes = [
   skills,
@@ -12,5 +13,6 @@ export const schemaTypes = [
   languages,
   certifications,
   pageInfo,
+  experience,
   // Add other schemas here
 ] 
