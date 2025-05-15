@@ -71,3 +71,16 @@ export interface Workshop {
         };
     };
 }
+
+export interface Resume extends SanityBody {
+    _type: "resume";
+    pdfDocument: {
+        _type: "file";
+        asset: {
+            _ref: string;
+            _type: "reference";
+        };
+    };
+    photo: Image;
+    summary?: string;
+}
