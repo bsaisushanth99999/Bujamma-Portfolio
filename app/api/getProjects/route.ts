@@ -7,6 +7,7 @@ const query = groq`*[_type == "project"] {
   _type,
   title,
   pdfDocuments,
+  video,
   summary,
   image,
   linkToBuild,
